@@ -1,0 +1,122 @@
+/* cái root này cả cái bên trong được coi như đặt biến 
+   tại vì mã màu này ta dùng nhiều nên ta khai báo 1 cái biến ra để gán cái 
+    mã màu này cho biến đó khi sử dụng lại ko phải viết mã màu nhiều  */
+:root{
+    --primary-color : #4daf54;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    /* cách sử dụng dải màu chuyển trong một khung mà mình mong muốn */
+    background: linear-gradient(to right, #4daf54 , #3dBBBD);
+}
+.card{
+    margin: 120px auto;
+    width: 320px;
+    height: 400px;
+    background: #272d40;
+    border-radius: 13px;
+    padding: 20px;
+    color: white;
+    
+    position: relative;
+}
+.card__heart , .card__cart{
+    font-size: 25px;
+    position: absolute;
+    left: 20px;
+    top:15px;
+}
+.card__cart{
+    margin-left: 250px;
+}
+.card__img{
+    transition: 0.5s;
+}
+.card__img img{
+    /* width: 200px; */
+    /* object-fit là để hình co lại mà vẫn ko bị bóp méo */
+    /* khi sử dụng width và height 100% để ko bóp méo hình và để cho nó thu nhỏ lại */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card__title , .card__price{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.card__title{
+    /* đây là cách để sử dụng cái mã màu đó nhiều lần */
+    color : var(--primary-color);
+}
+.card__size , .card__color{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.card__size span{
+    padding: 1px 10px;
+    background: #dadada;
+    color: black;
+    border-radius: 5px;
+    margin: 0 2px;
+}
+
+.card__color span{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.card__color__green{
+    background: green;
+}
+.card__color__red{
+    background: red;
+}
+.card__color__black{
+    background: black;
+}
+.card__action button{
+    background: var(--primary-color);
+    border: none;
+    /* outline: none; */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.card__action button:hover{
+    transform: scale(0.9);
+}
+
+.card:hover .card__img{
+    transform: translateY(-90px) rotate(-20deg);
+}
+.card:hover .card__title, .card:hover .card__price{
+    transform: translate(-10px,-70px);
+}
+.card__size{
+    margin-top: 150px;
+}
+.card__size, .card__color, .card__action{
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+    transition-delay: .3s;
+}
+.card:hover .card__size,
+.card:hover .card__color,
+.card:hover .card__action{
+    visibility: visible;
+    opacity: 1;
+}
+.card:hover .card__size{
+    margin-top: -20px;
+}
